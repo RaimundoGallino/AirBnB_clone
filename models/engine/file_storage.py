@@ -2,6 +2,7 @@
 '''file that defines the Base_model class'''
 
 import json
+from models.base_model import BaseModel
 from os import path
 
 class FileStorage:
@@ -18,8 +19,8 @@ class FileStorage:
         self.__objects.update(temp)
     
     def save(self):
-        with open(self.__file_path, "w", encoding="utf-8") as json_file:
-            return json.dump(self.__objects, json_file)
+        with open(self.__file_path, "w+", encoding="utf-8") as json_file:
+            json.dump(self.__objects, json_file)
 
     def reload(self):
         if (path.exists(self.__file_path)):
