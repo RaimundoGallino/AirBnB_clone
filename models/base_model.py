@@ -19,7 +19,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.update_at = datetime.now()
-            storage.new(self.to_dict())
+            storage.new(self.__dict__)
         else:
             for k, v in kwargs.items():
                 if (k == "created_at" or k == "updated_at"):

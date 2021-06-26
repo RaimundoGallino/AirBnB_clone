@@ -2,7 +2,6 @@
 '''file that defines the Base_model class'''
 
 import json
-from models.base_model import BaseModel
 from os import path
 
 class FileStorage:
@@ -10,30 +9,25 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-    props = {"BaseModel": BaseModel}
 
     def all(self):
         return self.__objects
     
     def new(self, obj):
-        name = (type(obj).__name__ + "." + obj.id)
+        name = (type(obj).__name__ + "." + obj.get('id'))
         temp = {name: obj}
         self.__objects.update(temp)
     
     def save(self):
+        obj = {}
+        for k, v in self.__objects.items():
+            obj[k] = v.to_dict()
+
         with open(self.__file_path, "w+", encoding="utf-8") as json_file:
             json.dump(self.__objects, json_file)
 
-    def reload2(self):
+    def reload(self):
         if (path.exists(self.__file_path)):
+
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
                 self.__objects.update(json.load(json_file))
-
-    def reload(self):
-        try:
-            with open(self.__file_path, 'r') as f:
-                js = json.load(f)
-            for key in js:
-                self.__objects[key] = self.props[js[key]["__class__"]](**js[key])
-        except:
-            pass
