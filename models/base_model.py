@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-from models import storage
+import models
 
 class BaseModel:
 
@@ -19,7 +19,7 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.update_at = datetime.now()
-            storage.new(self.__dict__)
+            models.storage.new(self.__dict__)
         else:
             for k, v in kwargs.items():
                 if (k == "created_at" or k == "updated_at"):
@@ -35,9 +35,9 @@ class BaseModel:
 
     def save(self):
         self.update_at = datetime.now()
-        storage.save()
+        models.storage.save()
 
     def to_dict(self):
-        dict = {'my_number': self.my_number, 'name': self.name, '__class__': type(self).__name__, 'updated_at': self.update_at.isoformat(), 'id': self.id , 'created_at': self.created_at.isoformat()}
+        dict = {'my_number': self.my_number, 'name': self.name, '__class__': type(self).__name__, 'updated_at': str(self.update_at.isoformat()), 'id': self.id , 'created_at': str(self.created_at.isoformat())}
 
         return dict
