@@ -10,6 +10,8 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
+    props = {"BaseModel": BaseModel}
+
     def all(self):
         return self.__objects
     
@@ -22,7 +24,16 @@ class FileStorage:
         with open(self.__file_path, "w+", encoding="utf-8") as json_file:
             json.dump(self.__objects, json_file)
 
-    def reload(self):
+    def reload2(self):
         if (path.exists(self.__file_path)):
             with open(self.__file_path, "r", encoding="utf-8") as json_file:
                 self.__objects.update(json.load(json_file))
+
+    def reload(self):
+        try:
+            with open(self.__file_path, 'r') as f:
+                js = json.load(f)
+            for key in js:
+                self.__objects[key] = self.props[js[key]["__class__"]](**js[key])
+        except:
+            pass
