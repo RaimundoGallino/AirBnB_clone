@@ -94,7 +94,50 @@ class HBNBCommand(cmd.Cmd):
                         list.append(v.__str__())
                 print(list)
 
-    
+    def do_update(self, arg):
+        '''Update an instance of a Class'''
+        splitted = arg.split()
+        if len(arg) == 0:
+            print('** class name missing **')
+        else:
+            if not splitted[0] in classes:
+                print("** class doesn't exist **")
+            else:
+                if len(splitted) == 1:
+                    print('** instance id missing **')
+                else:
+                    '''new_instance = classes[arg]'''
+                    objects = models.storage.all()
+        
+                    name = splitted[0] + '.' + splitted[1]
+                    if not name in objects:
+                        print("** no instance found **")
+                    else:
+                        if len(splitted) == 2:
+                            print("** attribute name missing **")
+                        else:
+                            if len(splitted) == 3:
+                                print("** value missing **")
+                            else:
+                                instance = objects[name].__dict__
+                                attribute = splitted[2]
+                                value = splitted[3]
+                                if type(value) == str:
+                                    value = value[1:-1]
+                                print(value)
+
+                                if attribute in instance:
+                                    tipo = type(instance[attribute])
+                                    print(tipo)
+                                    casted = tipo(value)
+                                    temp_dir = {attribute: casted}
+                                    setattr(objects[name], attribute, value)
+                                else:
+                                    tipo = type(value)
+                                    casted = tipo(value)
+                                    temp_dir = {attribute: casted}
+                                    setattr(objects[name], attribute, value)
+                                    print(objects[name])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
