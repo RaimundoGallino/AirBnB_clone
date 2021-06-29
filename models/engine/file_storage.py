@@ -4,7 +4,7 @@
 import json
 from os import path
 from models.base_model import BaseModel
-from models.users import User
+from models.user import User
 
 
 Av_classes = {'BaseModel': BaseModel, 'User': User}

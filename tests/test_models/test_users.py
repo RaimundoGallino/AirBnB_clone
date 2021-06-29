@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Unitest for Users'''
 import unittest
-from models.users import User
+from models.user import User
 
 
 class TestBase(unittest.TestCase):
