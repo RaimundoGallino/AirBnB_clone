@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-'''file that defines the Base_model class'''
+'''file that defines the Base_model class4'''
 
 import uuid
 from datetime import datetime
 import models
+
 
 class BaseModel:
     '''Class BaseModel'''
@@ -11,9 +12,6 @@ class BaseModel:
     id = ''
     created_at = ''
     updated_at = ''
-    name = ''
-    my_number = ''
-    
 
     def __init__(self, *args, **kwargs):
         '''Create new object BaseModel'''
@@ -45,10 +43,12 @@ class BaseModel:
     def to_dict(self):
         '''Convert BaseModel Object to jsoneable dictionary'''
 
-        dict = self.__dict__
+        dicti = dict(self.__dict__)
+
+        print(dicti)
         "dict = {'my_number': self.my_number, 'name': self.name, '__class__': type(self).__name__, 'updated_at': self.updated_at.isoformat(), 'id': self.id , 'created_at': self.created_at.isoformat()}"
 
-        dict.update({'__class__': type(self).__name__,'updated_at': self.updated_at.isoformat(),'created_at': self.created_at.isoformat()})
+        dicti.update({'__class__': self.__class__.__name__, 'updated_at': self.updated_at.isoformat(
+        ), 'created_at': self.created_at.isoformat()})
 
-
-        return dict
+        return dicti

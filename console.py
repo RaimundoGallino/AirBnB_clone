@@ -8,7 +8,7 @@ classes = {'BaseModel': models.base_model.BaseModel()}
 
 
 class HBNBCommand(cmd.Cmd):
-    '''Console Logic? jajaja XD'''
+    '''Console Logic? jajaja XD4'''
 
     prompt = '(hbnb) '
 

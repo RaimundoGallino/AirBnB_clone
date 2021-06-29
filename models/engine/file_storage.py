@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''file that defines the Base_model class'''
+'''file that defines the Base_model class4'''
 
 import json
 from os import path
@@ -12,11 +12,10 @@ class FileStorage:
     __file_path = 'file.json'
     __objects = {}
 
-
     def all(self):
         '''Return __objects'''
         return self.__objects
-    
+
     def new(self, obj):
         '''Add a new object in __objects'''
         name = type(obj).__name__ + "." + obj.id
