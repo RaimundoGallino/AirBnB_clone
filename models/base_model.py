@@ -44,8 +44,6 @@ class BaseModel:
         '''Convert BaseModel Object to jsoneable dictionary'''
 
         dicti = dict(self.__dict__)
-
-        print(dicti)
         "dict = {'my_number': self.my_number, 'name': self.name, '__class__': type(self).__name__, 'updated_at': self.updated_at.isoformat(), 'id': self.id , 'created_at': self.created_at.isoformat()}"
 
         dicti.update({'__class__': self.__class__.__name__, 'updated_at': self.updated_at.isoformat(

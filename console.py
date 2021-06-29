@@ -3,6 +3,7 @@
 
 import cmd
 from models.base_model import BaseModel
+from models import storage
 
 classes = {'BaseModel': BaseModel}
 
@@ -25,12 +26,12 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 0:
             print('** class name missing **')
         else:
-            'try:'
-            new_instance = classes[arg]()
-            print(new_instance.id)
-            new_instance.save()
-            '''except:
-                print("** class doesn't exist **")'''
+            try:
+                new_instance = classes[arg]()
+                print(new_instance.id)
+                new_instance.save()
+            except:
+                print("** class doesn't exist **")
 
     def do_show(self, arg):
         '''Print a instance of a class'''
@@ -45,7 +46,7 @@ class HBNBCommand(cmd.Cmd):
                     print('** instance id missing **')
                 else:
                     '''new_instance = classes[arg]'''
-                    objects = models.storage.all()
+                    objects = storage.all()
 
                     name = splitted[0] + '.' + splitted[1]
                     try:
@@ -67,12 +68,12 @@ class HBNBCommand(cmd.Cmd):
                     print('** instance id missing **')
                 else:
                     '''new_instance = classes[arg]'''
-                    objects = models.storage.all()
+                    objects = storage.all()
 
                     name = splitted[0] + '.' + splitted[1]
                     try:
                         objects.pop(name)
-                        models.storage.save()
+                        storage.save()
                     except:
                         print("** no instance found **")
 
@@ -80,7 +81,7 @@ class HBNBCommand(cmd.Cmd):
         '''Display all instances of a class or all instances in total'''
         list = []
         splitted = arg.split()
-        objects = models.storage.all()
+        objects = storage.all()
         if len(arg) == 0:
             for k, v in objects.items():
                 list.append(v.__str__())
@@ -108,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                     print('** instance id missing **')
                 else:
                     '''new_instance = classes[arg]'''
-                    objects = models.storage.all()
+                    objects = storage.all()
 
                     name = splitted[0] + '.' + splitted[1]
                     if not name in objects:
@@ -127,22 +128,20 @@ class HBNBCommand(cmd.Cmd):
                                     value = int(value)
                                 if type(value) == str:
                                     value = value[1:-1]
-                                print(value)
 
                                 if attribute in instance:
                                     tipo = type(instance[attribute])
                                     print(tipo)
                                     casted = tipo(value)
                                     temp_dir = {attribute: casted}
-                                    setattr(objects[name], attribute, value)
-                                    "save file"
+                                    setattr(objects[name], attribute, casted)
+                                    storage.save()
                                 else:
                                     tipo = type(value)
                                     casted = tipo(value)
                                     temp_dir = {attribute: casted}
-                                    setattr(objects[name], attribute, value)
-                                    print(objects[name])
-                                    "save file"
+                                    setattr(objects[name], attribute, casted)
+                                    storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
