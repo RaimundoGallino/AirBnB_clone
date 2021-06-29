@@ -127,12 +127,15 @@ class HBNBCommand(cmd.Cmd):
                                 value = splitted[3]
                                 if value.isnumeric():
                                     value = int(value)
-                                if type(value) == str:
+                                elif "." in value:
+                                    split_value = value.split(".")
+                                    if split_value[0].isnumeric() and split_value[1].isnumeric():
+                                       value = float(value)
+                                elif type(value) == str:
                                     value = value[1:-1]
 
                                 if attribute in instance:
                                     tipo = type(instance[attribute])
-                                    print(tipo)
                                     casted = tipo(value)
                                     temp_dir = {attribute: casted}
                                     setattr(objects[name], attribute, casted)
