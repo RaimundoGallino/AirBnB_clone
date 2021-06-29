@@ -2,9 +2,9 @@
 '''file that defines the console'''
 
 import cmd
-import models
+from models.base_model import BaseModel
 
-classes = {'BaseModel': models.base_model.BaseModel()}
+classes = {'BaseModel': BaseModel}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -25,12 +25,12 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 0:
             print('** class name missing **')
         else:
-            try:
-                new_instance = classes[arg]
-                print(new_instance.id)
-                new_instance.save()
-            except:
-                print("** class doesn't exist **")
+            'try:'
+            new_instance = classes[arg]()
+            print(new_instance.id)
+            new_instance.save()
+            '''except:
+                print("** class doesn't exist **")'''
 
     def do_show(self, arg):
         '''Print a instance of a class'''
