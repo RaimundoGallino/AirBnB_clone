@@ -3,9 +3,11 @@
 
 import json
 from os import path
-from models.base_model import BaseModel as base
+from models.base_model import BaseModel
+from models.users import User
 
 
+Av_classes = {'BaseModel': BaseModel, 'User': User}
 class FileStorage:
     '''Class FileStorage store info in json files'''
 
@@ -37,6 +39,7 @@ class FileStorage:
             with open(self.__file_path, "r") as json_file:
                 content = json.load(json_file)
                 for k in content:
-                    self.__objects[k] = base(**content[k])
+                    class_name = k.split('.')
+                    self.__objects[k] = Av_classes[class_name[0]](**content[k])
         except:
             pass

@@ -3,9 +3,10 @@
 
 import cmd
 from models.base_model import BaseModel
+from models.users import User
 from models import storage
 
-classes = {'BaseModel': BaseModel}
+classes = {'BaseModel': BaseModel, 'User': User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -90,7 +91,7 @@ class HBNBCommand(cmd.Cmd):
             if not splitted[0] in classes:
                 print("** class doesn't exist **")
             else:
-                for k,v in objects.items():
+                for k, v in objects.items():
                     class_name = v.__class__.__name__
                     if class_name == splitted[0]:
                         list.append(v.__str__())
@@ -112,7 +113,7 @@ class HBNBCommand(cmd.Cmd):
                     objects = storage.all()
 
                     name = splitted[0] + '.' + splitted[1]
-                    if not name in objects:
+                    if name not in objects:
                         print("** no instance found **")
                     else:
                         if len(splitted) == 2:
@@ -142,6 +143,7 @@ class HBNBCommand(cmd.Cmd):
                                     temp_dir = {attribute: casted}
                                     setattr(objects[name], attribute, casted)
                                     storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
