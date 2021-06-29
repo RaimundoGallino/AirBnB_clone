@@ -3,11 +3,17 @@
 
 import json
 from os import path
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models.user import User
 
 
-Av_classes = {'BaseModel': BaseModel, 'User': User}
+Av_classes = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity,
+                'City': City, 'State': State, 'Place': Place, 'Review': Review }
 
 
 class FileStorage:
@@ -33,7 +39,7 @@ class FileStorage:
             obj[k] = self.__objects[k].to_dict()
 
         with open(self.__file_path, "w+") as json_file:
-            json.dump(obj, json_file)
+            json.dump(obj, json_file, indent=4, sort_keys=True)
 
     def reload(self):
         '''Loads the content of a json file into __objects'''

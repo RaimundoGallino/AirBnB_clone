@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-'''User Module'''
+'''file that defines the Base_model class4'''
 
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
-    '''User Class'''
+class City(BaseModel):
 
-    email = str('')
-    password = ''
-    first_name = ''
-    last_name = ''
+    name = ''
+    state_id = ''
 
     def __init__(self, *args, **kwargs):
         '''Class Constructor'''
