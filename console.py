@@ -14,6 +14,10 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
+    def emptyline(self):
+        '''Empty line handeling'''
+        return False
+
     def do_EOF(self, line):
         '''End of the file'''
         return True
