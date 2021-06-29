@@ -46,7 +46,7 @@ class BaseModel:
 
         dicti = dict(self.__dict__)
 
-        dicti.update({'__class__': self.__class__.__name__, 
+        dicti.update({'__class__': self.__class__.__name__,
                      'updated_at': self.updated_at.isoformat(
                      ), 'created_at': self.created_at.isoformat()})
 

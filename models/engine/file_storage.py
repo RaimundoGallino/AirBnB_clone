@@ -8,6 +8,8 @@ from models.users import User
 
 
 Av_classes = {'BaseModel': BaseModel, 'User': User}
+
+
 class FileStorage:
     '''Class FileStorage store info in json files'''
 
