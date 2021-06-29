@@ -129,8 +129,8 @@ class HBNBCommand(cmd.Cmd):
                                     value = int(value)
                                 elif "." in value:
                                     split_value = value.split(".")
-                                    if (split_value[0].isnumeric()
-                                            and split_value[1].isnumeric()):
+                                    if (split_value[0].isnumeric() and
+                                            split_value[1].isnumeric()):
                                         value = float(value)
                                 elif type(value) == str:
                                     value = value[1:-1]
