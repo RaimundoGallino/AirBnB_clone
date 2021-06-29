@@ -13,15 +13,15 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_EOF(self, line):
-        'End of the file'
+        '''End of the file'''
         return True
 
     def do_quit(self, line):
-        'Quit command to exit the program'
+        '''Quit command to exit the program'''
         return True
 
     def do_create(self, arg):
-        '''Create the instance of a class'''
+        '''Create an instance of a class Ex: create "ClassName"'''
         if len(arg) == 0:
             print('** class name missing **')
         else:
@@ -89,8 +89,9 @@ class HBNBCommand(cmd.Cmd):
             if not splitted[0] in classes:
                 print("** class doesn't exist **")
             else:
-                for k, v in objects.items():
-                    if v["__class__"] == splitted[0]:
+                for k,v in objects.items():
+                    class_name = v.__class__.__name__
+                    if class_name == splitted[0]:
                         list.append(v.__str__())
                 print(list)
 
@@ -122,6 +123,8 @@ class HBNBCommand(cmd.Cmd):
                                 instance = objects[name].__dict__
                                 attribute = splitted[2]
                                 value = splitted[3]
+                                if value.isnumeric():
+                                    value = int(value)
                                 if type(value) == str:
                                     value = value[1:-1]
                                 print(value)
@@ -140,7 +143,6 @@ class HBNBCommand(cmd.Cmd):
                                     setattr(objects[name], attribute, value)
                                     print(objects[name])
                                     "save file"
-
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
