@@ -6,6 +6,7 @@ import models
 
 classes = {'BaseModel': models.base_model.BaseModel()}
 
+
 class HBNBCommand(cmd.Cmd):
     '''Console Logic? jajaja XD'''
 
@@ -14,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
     def do_EOF(self, line):
         'End of the file'
         return True
-    
+
     def do_quit(self, line):
         'Quit command to exit the program'
         return True
@@ -26,8 +27,8 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 new_instance = classes[arg]
-                models.storage.save()
                 print(new_instance.id)
+                new_instance.save()
             except:
                 print("** class doesn't exist **")
 
@@ -45,14 +46,13 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     '''new_instance = classes[arg]'''
                     objects = models.storage.all()
-        
+
                     name = splitted[0] + '.' + splitted[1]
                     try:
                         obj_show = objects[name]
                         print(obj_show)
                     except:
                         print("** no instance found **")
-
 
     def do_destroy(self, arg):
         '''Destroy an Instance of a class'''
@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     '''new_instance = classes[arg]'''
                     objects = models.storage.all()
-        
+
                     name = splitted[0] + '.' + splitted[1]
                     try:
                         objects.pop(name)
@@ -82,14 +82,14 @@ class HBNBCommand(cmd.Cmd):
         splitted = arg.split()
         objects = models.storage.all()
         if len(arg) == 0:
-            for k,v in objects.items():
+            for k, v in objects.items():
                 list.append(v.__str__())
             print(list)
         else:
             if not splitted[0] in classes:
                 print("** class doesn't exist **")
             else:
-                for k,v in objects.items():
+                for k, v in objects.items():
                     if v["__class__"] == splitted[0]:
                         list.append(v.__str__())
                 print(list)
@@ -108,7 +108,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     '''new_instance = classes[arg]'''
                     objects = models.storage.all()
-        
+
                     name = splitted[0] + '.' + splitted[1]
                     if not name in objects:
                         print("** no instance found **")
@@ -132,12 +132,15 @@ class HBNBCommand(cmd.Cmd):
                                     casted = tipo(value)
                                     temp_dir = {attribute: casted}
                                     setattr(objects[name], attribute, value)
+                                    "save file"
                                 else:
                                     tipo = type(value)
                                     casted = tipo(value)
                                     temp_dir = {attribute: casted}
                                     setattr(objects[name], attribute, value)
                                     print(objects[name])
+                                    "save file"
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
