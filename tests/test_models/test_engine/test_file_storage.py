@@ -79,11 +79,5 @@ class TestFileStorage(unittest.TestCase):
             FileStorage(None)
 
 
-    def test_reload_with_arg(self):
-        """testing file storage with an argument"""
-        with self.assertRaises(TypeError):
-            storage.reload(None)
-
-
 if __name__ == "__main__":
     unittest.main()
