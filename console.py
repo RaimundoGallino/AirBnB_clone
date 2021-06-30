@@ -34,11 +34,20 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, line):
         '''default documentation'''
-        self.aliases = {'.all()': self.do_all,
-                        '.count()': self.do_count}
+        self.aliases = {'.all': self.do_all, '.count': self.do_count,
+                        '.show': self.do_show, '.destroy': self.do_destroy}
         cmd, arg, line = self.parseline(line)
-        if arg in self.aliases:
-            self.aliases[arg](cmd)
+        split = arg.split('(')
+        print(split[0])
+
+        if split[0] in self.aliases:
+            if split[0] == ".show" or split[0] == ".destroy":
+                inst_id = split[1]
+                inst_id = inst_id[1:-2]
+                data = cmd + " " + inst_id
+                self.aliases[split[0]](data)
+            else:
+                self.aliases[split[0]](cmd)
         else:
             print("*** Unknown syntax: {}".format(line))
 
