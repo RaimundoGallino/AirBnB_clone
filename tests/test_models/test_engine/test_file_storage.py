@@ -77,6 +77,13 @@ class TestFileStorage(unittest.TestCase):
             FileStorage("89")
         with self.assertRaises(TypeError):
             FileStorage(None)
+    
+    def test_atr(self):
+        """la puta que lo aprio"""
+        Storage = FileStorage()
+        Storage.reload()
+        self.assertTrue(hasattr(FileStorage, "_FileStorage__file_path"))
+        self.assertTrue(hasattr(FileStorage, "_FileStorage__objects"))
 
 
 if __name__ == "__main__":
