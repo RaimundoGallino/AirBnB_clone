@@ -13,6 +13,11 @@ class TestBase(unittest.TestCase):
         b.name = "Test"
         self.assertEqual(b.name, "Test")
 
+    def test_type_Base(self):
+        '''Test if the instance is the correct class'''
+        b = BaseModel()
+        self.assertIsInstance(b, BaseModel)
+
 
 if __name__ == "__main__":
     unittest.main()
