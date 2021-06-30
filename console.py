@@ -42,8 +42,6 @@ class HBNBCommand(cmd.Cmd):
         cmd, arg, line = self.parseline(line)
         if arg in self.aliases:
             self.aliases[arg](cmd)
-        else:
-            print("*** Unknown syntax: %s" % line)
 
     def do_create(self, arg):
         '''Create an instance of a class Ex: create "ClassName"'''
