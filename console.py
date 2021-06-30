@@ -20,11 +20,6 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    """def __init__(self):
-        '''init function'''
-        cmd.Cmd.__init__(self)"""
-        
-
     def emptyline(self):
         '''Empty line handeling'''
         return False
