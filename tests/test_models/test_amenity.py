@@ -17,22 +17,6 @@ class TestBase(unittest.TestCase):
         b.email = "Test"
         self.assertEqual(b.email, "Test")
 
-    @classmethod
-    def setUp(cls):
-        """test instance"""
-        cls.user_f = inspect.getmembers(User, inspect.isfunction)
-
-    def tearDown(self):
-        """test instance"""
-        pass
-    def test_constructor(self):
-        """test init"""
-        user = User()
-        self.assertIsInstance(user, BaseModel)
-        self.assertTrue(hasattr(user, "id"))
-        self.assertTrue(hasattr(user, "created_at"))
-        self.assertTrue(hasattr(user, "updated_at"))
-
 
     def test_pub_attrs(self):
 
