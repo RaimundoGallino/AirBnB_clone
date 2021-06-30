@@ -7,11 +7,11 @@ from models.city import City
 class TestBase(unittest.TestCase):
     '''Test Cases'''
 
-    def test_User(self):
-        '''Test'''
-        b = City()
-        b.email = "Test"
-        self.assertEqual(b.email, "Test")
+    def test_city(self):
+        '''  Test for City '''
+        c = City()
+        self.assertEqual(str, type(c.state_id))
+        self.assertEqual(str, type(c.name))
 
 
 if __name__ == "__main__":

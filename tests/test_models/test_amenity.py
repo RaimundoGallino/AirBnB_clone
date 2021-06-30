@@ -14,6 +14,11 @@ class TestBase(unittest.TestCase):
         b.email = "Test"
         self.assertEqual(b.email, "Test")
 
+    def test_amenity(self):
+        '''  Test for User '''
+        a = Amenity()
+        self.assertEqual(str, type(a.name))
+
 
 if __name__ == "__main__":
     unittest.main()

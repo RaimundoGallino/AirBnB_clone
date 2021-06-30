@@ -7,11 +7,12 @@ from models.review import Review
 class TestBase(unittest.TestCase):
     '''Test Cases'''
 
-    def test_User(self):
-        '''Test'''
-        b = Review()
-        b.email = "Test"
-        self.assertEqual(b.email, "Test")
+    def test_review(self):
+        '''  Test for Review '''
+        r = Review()
+        self.assertEqual(str, type(r.place_id))
+        self.assertEqual(str, type(r.user_id))
+        self.assertEqual(str, type(r.text))
 
 
 if __name__ == "__main__":
