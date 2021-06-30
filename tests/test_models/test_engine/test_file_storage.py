@@ -28,10 +28,20 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all_method(self):
         '''Test'''
-        b = FileStorage()
-        dict_ = b.all()
+        b = BaseModel()
+        dict_ = storage.all()
         self.assertIsNotNone(dict_)
         self.assertIsInstance(dict_, dict)
+
+
+    def test_FileStorage_1(self):
+        """Tests the FileStorage again"""
+        my_model = FileStorage()
+        my_model.name = "Holberton"
+        my_model.my_number = 89
+        self.assertEqual(str(type(FileStorage)), "<class 'type'>")
+        self.assertTrue(isinstance(my_model, FileStorage))
+        self.assertTrue(type(my_model), object)
 
     def test_new_method(self):
         '''Test'''
