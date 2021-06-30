@@ -12,7 +12,7 @@ from models.user import User
 
 
 Av_classes = {'BaseModel': BaseModel, 'User': User, 'Amenity': Amenity,
-                'City': City, 'State': State, 'Place': Place, 'Review': Review }
+              'City': City, 'State': State, 'Place': Place, 'Review': Review}
 
 
 class FileStorage:
