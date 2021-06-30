@@ -20,11 +20,10 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    def __init__(self):
+    """def __init__(self):
         '''init function'''
-        cmd.Cmd.__init__(self)
-        self.aliases = {'.all()': self.do_all,
-                        '.count()': self.do_count}
+        cmd.Cmd.__init__(self)"""
+        
 
     def emptyline(self):
         '''Empty line handeling'''
@@ -38,13 +37,15 @@ class HBNBCommand(cmd.Cmd):
         '''Quit command to exit the program'''
         return True
 
-    """def default(self, line):
+    def default(self, line):
         '''default documentation'''
+        self.aliases = {'.all()': self.do_all,
+                        '.count()': self.do_count}
         cmd, arg, line = self.parseline(line)
         if arg in self.aliases:
             self.aliases[arg](cmd)
         else:
-            print("*** Unknown syntax: {}".format(line))"""
+            print("*** Unknown syntax: {}".format(line))
 
     def do_create(self, arg):
         '''Create an instance of a class Ex: create "ClassName"'''
