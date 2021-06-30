@@ -20,11 +20,11 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
 
-    """def __init__(self):
+    def __init__(self):
         '''init function'''
         cmd.Cmd.__init__(self)
         self.aliases = {'.all()': self.do_all,
-                        '.count()': self.do_count}"""
+                        '.count()': self.do_count}
 
     def emptyline(self):
         '''Empty line handeling'''
