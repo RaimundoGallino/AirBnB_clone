@@ -99,34 +99,34 @@ class TestFileStorage(unittest.TestCase):
         self.assertIn(key_state, objs)
         self.assertIn(key_amenity, objs)
 
-        def test_save(self):
-            '''Test save method'''
-            objs = storage
-            new_base = BaseModel()
-            new_user = User()
-            new_state = State()
-            new_place = Place()
-            new_city = City()
-            new_amenity = Amenity()
-            new_review = Review()
-            objs.new(new_base)
-            objs.new(new_user)
-            objs.new(new_state)
-            objs.new(new_place)
-            objs.new(new_city)
-            objs.new(new_amenity)
-            objs.new(new_review)
-            objs.save()
-            save_text = ""
-            with open("file.json", "r") as f:
-                save_text = f.read()
-                self.assertIn("BaseModel." + new_base.id, save_text)
-                self.assertIn("User." + new_user.id, save_text)
-                self.assertIn("State." + new_state.id, save_text)
-                self.assertIn("Place." + new_place.id, save_text)
-                self.assertIn("City." + new_city.id, save_text)
-                self.assertIn("Amenity." + new_amenity.id, save_text)
-                self.assertIn("Review." + new_review.id, save_text)
+    def test_save(self):
+        '''Test save method'''
+        objs = storage
+        new_base = BaseModel()
+        new_user = User()
+        new_state = State()
+        new_place = Place()
+        new_city = City()
+        new_amenity = Amenity()
+        new_review = Review()
+        objs.new(new_base)
+        objs.new(new_user)
+        objs.new(new_state)
+        objs.new(new_place)
+        objs.new(new_city)
+        objs.new(new_amenity)
+        objs.new(new_review)
+        objs.save()
+        save_text = ""
+        with open("file.json", "r") as f:
+            save_text = f.read()
+            self.assertIn("BaseModel." + new_base.id, save_text)
+            self.assertIn("User." + new_user.id, save_text)
+            self.assertIn("State." + new_state.id, save_text)
+            self.assertIn("Place." + new_place.id, save_text)
+            self.assertIn("City." + new_city.id, save_text)
+            self.assertIn("Amenity." + new_amenity.id, save_text)
+            self.assertIn("Review." + new_review.id, save_text)
 
 
 if __name__ == "__main__":
