@@ -172,7 +172,7 @@ class HBNBCommand(cmd.Cmd):
                                     setattr(objects[name], attribute, casted)
                                     storage.save()
 
-    """def do_count(self, line):
+    def do_count(self, line):
         '''Count documentation '''
         objects = storage.all()
         pichu = 0
@@ -180,7 +180,7 @@ class HBNBCommand(cmd.Cmd):
             class_name = v.__class__.__name__
             if class_name == line:
                 pichu += 1
-        print(pichu)"""
+        print(pichu)
 
 
 if __name__ == '__main__':
