@@ -78,20 +78,23 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(TypeError):
             FileStorage(None)
 
-        def test_reload(self):
-            """tests the reload"""
-            if not path.exists("file.json"):
-                new_file = FileStorage()
-                new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
-                                    updated_at="2021-02-17T22:46:38.86")
-                new_city = City()
-                new_file.new(new_base)
-                new_file.new(new_city)
-                new_file.save()
-            with open("file.json", "r") as f:
-                obj = json.load(f)
-            self.assertEqual(type(obj), dict)
+    def test_reload(self):
+        """tests the reload"""
+        if not path.exists("file.json"):
+            new_file = FileStorage()
+            new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
+                                updated_at="2021-02-17T22:46:38.86")
+            new_city = City()
+            new_file.new(new_base)
+            new_file.new(new_city)
+            new_file.save()
+        with open("file.json", "r") as f:
+            obj = json.load(f)
+        self.assertEqual(type(obj), dict)
 
+    def test_reload_with_arg(self):
+        with self.assertRaises(TypeError):
+            storage.reload(None)
 
 if __name__ == "__main__":
     unittest.main()
