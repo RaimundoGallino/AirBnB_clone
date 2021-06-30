@@ -10,6 +10,13 @@ from datetime import datetime
 class TestFileStorage(unittest.TestCase):
     '''Test Cases'''
 
+    def test_pep8_conformance(self):
+            """Test that we conform to PEP8."""
+            pep8style = pep8.StyleGuide(quiet=True)
+            result = pep8style.check_files(['models/engine/file_storage.py'])
+            self.assertEqual(result.total_errors, 0,
+                            "Found code style errors (and warnings).")
+
     def test_all_method(self):
         '''Test'''
         b = BaseModel()
@@ -30,6 +37,7 @@ class TestFileStorage(unittest.TestCase):
         bool = path.exists('file.json')
         self.assertTrue(bool)
 
+
     def test_reload_method(self):
         '''test'''
         b = BaseModel()
@@ -38,5 +46,7 @@ class TestFileStorage(unittest.TestCase):
         dict_reloaded = storage.all()
         self.assertEqual(len(dict_), len(dict_reloaded))
 
-        
+       
+if __name__ == "__main__":
+    unittest.main() 
 
