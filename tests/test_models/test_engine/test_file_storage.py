@@ -3,6 +3,7 @@ import unittest
 from time import sleep
 from os import path
 from models.base_model import BaseModel
+from models.engine.file_storage import FileStorage
 from models import storage
 from datetime import datetime
 import pep8
@@ -20,8 +21,9 @@ class TestFileStorage(unittest.TestCase):
 
     def test_isInstance(self):
         '''Test'''
-        b = storage
-        self.assertIsInstance(b, type(storage))
+        b = FileStorage()
+        self.assertIsInstance(b, FileStorage)
+        self.assertIsInstance(storage, FileStorage)
 
     def test_all_method(self):
         '''Test'''
