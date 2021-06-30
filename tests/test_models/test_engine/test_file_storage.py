@@ -1,4 +1,7 @@
+#!/usr/bin/python3
 '''Unitest for base_model'''
+
+import json
 import unittest
 from time import sleep
 from os import path
@@ -6,6 +9,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
 from datetime import datetime
+from models.city import City
 import pep8
 
 
@@ -33,15 +37,19 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsNotNone(dict_)
         self.assertIsInstance(dict_, dict)
 
-
-    def test_FileStorage_1(self):
-        """Tests the FileStorage again"""
-        my_model = FileStorage()
-        my_model.name = "Holberton"
-        my_model.my_number = 89
-        self.assertEqual(str(type(FileStorage)), "<class 'type'>")
-        self.assertTrue(isinstance(my_model, FileStorage))
-        self.assertTrue(type(my_model), object)
+    def test_reload(self):
+        """tests the reload"""
+        if not path.exists("file.json"):
+            new_file = FileStorage()
+            new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
+                                updated_at="2021-02-17T22:46:38.86")
+            new_city = City()
+            new_file.new(new_base)
+            new_file.new(new_city)
+            new_file.save()
+        with open("file.json", "r") as f:
+            obj = json.load(f)
+        self.assertEqual(type(obj), dict)
 
     def test_new_method(self):
         '''Test'''
