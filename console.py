@@ -35,7 +35,8 @@ class HBNBCommand(cmd.Cmd):
     def default(self, line):
         '''default documentation'''
         self.aliases = {'.all': self.do_all, '.count': self.do_count,
-                        '.show': self.do_show, '.destroy': self.do_destroy}
+                        '.show': self.do_show, '.destroy': self.do_destroy,
+                        '.update': self.do_update}
         cmd, arg, line = self.parseline(line)
         split = arg.split('(')
         print(split[0])
@@ -45,6 +46,13 @@ class HBNBCommand(cmd.Cmd):
                 inst_id = split[1]
                 inst_id = inst_id[1:-2]
                 data = cmd + " " + inst_id
+                self.aliases[split[0]](data)
+            elif split[0] == ".update":
+                temp = split[1].split(',')
+                inst_id = temp[0][1:-1]
+                atr_pa = temp[1][2:-1]
+                val = temp[2][1:-1]
+                data = cmd + " " + inst_id + " " + atr_pa + " " + val
                 self.aliases[split[0]](data)
             else:
                 self.aliases[split[0]](cmd)
