@@ -9,12 +9,6 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 from models import storage
 from datetime import datetime
-from models.city import City
-from models.place import Place
-from models.state import State
-from models.review import Review
-from models.user import User
-from models.amenity import Amenity
 import pep8
 
 
@@ -65,17 +59,26 @@ class TestFileStorage(unittest.TestCase):
         '''Test'''
         b = BaseModel()
         storage.save()
-        bool = path.exists('file.json')
+        bool = os.path.exists('file.json')
         self.assertTrue(bool)
 
 
     def test_reload_method(self):
         '''test'''
         b = BaseModel()
+        file = FileStorage()
         dict_ = storage.all().copy()
         storage.reload()
         dict_reloaded = storage.all()
         self.assertEqual(len(dict_), len(dict_reloaded))
+
+        di = {}
+        b.save()
+        self.assertNotEqual(di, storage.all())
+        self.assertEqual(str, type(file._FileStorage__file_path))
+        self.assertEqual(dict, type(file._FileStorage__objects))
+        f = os.path.exists('file.json')
+        self.assertTrue(f)
 
 
     def test_FileStorage_arg(self):
