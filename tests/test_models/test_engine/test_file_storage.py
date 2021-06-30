@@ -78,13 +78,10 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(TypeError):
             FileStorage(None)
     
-    def test_atr(self):
-        """la puta que lo aprio"""
-        Storage = FileStorage()
-        Storage.reload()
-        self.assertTrue(hasattr(FileStorage, "_FileStorage__file_path"))
-        self.assertTrue(hasattr(FileStorage, "_FileStorage__objects"))
-
+    def test_is_an_instance(self):
+        """function test_is_an_instance"""
+        my_model = FileStorage()
+        self.assertIsInstance(my_model, FileStorage)
 
 if __name__ == "__main__":
     unittest.main()
