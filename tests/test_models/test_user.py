@@ -12,8 +12,6 @@ class TestBase(unittest.TestCase):
         b = User()
         b.email = "Test"
         self.assertEqual(b.email, "Test")
-
-
     
     def test_user(self):
         '''  Test for User '''
