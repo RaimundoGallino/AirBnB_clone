@@ -4,7 +4,6 @@ import unittest
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.user import User
-import inspect
 
 
 
@@ -35,7 +34,6 @@ class TestBase(unittest.TestCase):
         for attr in user.__dict__:
             self.assertTrue(attr in new_d)
             self.assertTrue("__class__" in new_d)
-
 
 
 if __name__ == "__main__":
