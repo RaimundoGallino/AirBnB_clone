@@ -10,6 +10,11 @@ from models.engine.file_storage import FileStorage
 from models import storage
 from datetime import datetime
 from models.city import City
+from models.place import Place
+from models.state import State
+from models.review import Review
+from models.user import User
+from models.amenity import Amenity
 import pep8
 
 
@@ -36,10 +41,7 @@ class TestFileStorage(unittest.TestCase):
         dict_ = storage.all()
         self.assertIsNotNone(dict_)
         self.assertIsInstance(dict_, dict)
-    
-    def test_reload_with_arg(self):
-        with self.assertRaises(TypeError):
-            storage.reload(None)
+
 
     def test_new_method(self):
         '''Test'''
@@ -62,6 +64,41 @@ class TestFileStorage(unittest.TestCase):
         storage.reload()
         dict_reloaded = storage.all()
         self.assertEqual(len(dict_), len(dict_reloaded))
+
+    def test_new(self):
+        '''Test new method'''
+        new_file = FileStorage()
+        new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.883036",
+                                updated_at="2021-02-17T22:46:38.883036")
+        new_city = City()
+        new_amenity = Amenity()
+        new_user = User()
+        new_place = Place()
+        new_review = Review()
+        new_state = State()
+        new_file.new(new_base)
+        new_file.new(new_city)
+        new_file.new(new_amenity)
+        new_file.new(new_place)
+        new_file.new(new_state)
+        new_file.new(new_user)
+        new_file.new(new_review)
+        objs = new_file.all()
+        key = new_base.__class__.__name__ + "." + new_base.__dict__["id"]
+        key_2 = new_city.__class__.__name__ + "." + new_city.__dict__["id"]
+        key_user = new_user.__class__.__name__ + "." + new_user.__dict__["id"]
+        key_review = new_review.__class__.__name__ + "." + new_review.__dict__["id"]
+        key_place = new_place.__class__.__name__ + "." + new_place.__dict__["id"]
+        key_state = new_state.__class__.__name__ + "." + new_state.__dict__["id"]
+        key_amenity = new_amenity.__class__.__name__ + "." + new_amenity.__dict__["id"]
+        self.assertIn(key, objs)
+        self.assertIn(key_2, objs)
+        self.assertIn(key_user, objs)
+        self.assertIn(key_review, objs)
+        self.assertIn(key_place, objs)
+        self.assertIn(key_state, objs)
+        self.assertIn(key_amenity, objs)
+
 
 
 if __name__ == "__main__":
