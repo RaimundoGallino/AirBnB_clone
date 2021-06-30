@@ -25,14 +25,12 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsInstance(b, FileStorage)
         self.assertIsInstance(storage, FileStorage)
 
-    def test_file_path(self):
-        """testing file path"""
-        self.assertEqual(str, type(FileStorage._FileStorage__file_path))
 
     def test_all_method(self):
         '''Test'''
         b = BaseModel()
         dict_ = storage.all()
+        self.assertIsNotNone(dict_)
         self.assertIsInstance(dict_, dict)
 
     def test_new_method(self):
