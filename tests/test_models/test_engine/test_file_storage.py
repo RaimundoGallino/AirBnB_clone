@@ -65,6 +65,22 @@ class TestFileStorage(unittest.TestCase):
         dict_reloaded = storage.all()
         self.assertEqual(len(dict_), len(dict_reloaded))
 
+    def test_FileStorage_arg(self):
+        """testing file storage with an argument"""
+        with self.assertRaises(TypeError):
+            FileStorage("Holberton")
+        with self.assertRaises(TypeError):
+            FileStorage("89")
+        with self.assertRaises(TypeError):
+            FileStorage(None)
+
+
+    def test_reload_with_arg(self):
+        """testing file storage with an argument"""
+        with self.assertRaises(TypeError):
+            storage.reload(None)
+
+
     def test_new(self):
         '''Test new method'''
         new_file = FileStorage()
