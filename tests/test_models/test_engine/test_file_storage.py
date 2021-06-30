@@ -58,7 +58,7 @@ class TestFileStorage(unittest.TestCase):
     def test_save_method(self):
         '''Test'''
         b = BaseModel()
-        storage.save()
+        b.save()
         bool = os.path.exists('file.json')
         self.assertTrue(bool)
 
@@ -74,21 +74,10 @@ class TestFileStorage(unittest.TestCase):
 
         di = {}
         b.save()
-        self.assertNotEqual(di, storage.all())
         self.assertEqual(str, type(file._FileStorage__file_path))
         self.assertEqual(dict, type(file._FileStorage__objects))
         f = os.path.exists('file.json')
         self.assertTrue(f)
-
-
-    def test_FileStorage_arg(self):
-        """testing file storage with an argument"""
-        with self.assertRaises(TypeError):
-            FileStorage("Holberton")
-        with self.assertRaises(TypeError):
-            FileStorage("89")
-        with self.assertRaises(TypeError):
-            FileStorage(None)
 
 
 
