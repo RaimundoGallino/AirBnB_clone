@@ -28,8 +28,8 @@ class TestFileStorage(unittest.TestCase):
 
     def test_all_method(self):
         '''Test'''
-        b = BaseModel()
-        dict_ = storage.all()
+        b = FileStorage()
+        dict_ = b.all()
         self.assertIsNotNone(dict_)
         self.assertIsInstance(dict_, dict)
 
