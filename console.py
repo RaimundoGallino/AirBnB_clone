@@ -16,7 +16,7 @@ classes = {'Amenity': Amenity, 'BaseModel': BaseModel, 'City': City,
 
 
 class HBNBCommand(cmd.Cmd):
-    '''Console Logic? jajaja XD4'''
+    '''Console Logic? jajaja XD'''
 
     prompt = '(hbnb) '
 
@@ -38,6 +38,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def default(self, line):
+        '''default documentation'''
         cmd, arg, line = self.parseline(line)
         if arg in self.aliases:
             self.aliases[arg](cmd)
@@ -171,12 +172,12 @@ class HBNBCommand(cmd.Cmd):
                                     storage.save()
 
     def do_count(self, line):
-        cmd, arg, line = self.parseline(line)
+        '''Count documentation '''
         objects = storage.all()
         pichu = 0
         for k, v in objects.items():
             class_name = v.__class__.__name__
-            if class_name == cmd:
+            if class_name == line:
                 pichu += 1
         print(pichu)
 
