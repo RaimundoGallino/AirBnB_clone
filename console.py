@@ -12,13 +12,18 @@ from models.user import User
 from models import storage
 
 classes = {'Amenity': Amenity, 'BaseModel': BaseModel, 'City': City,
-            'Place': Place, 'Review': Review,'State': State , 'User': User}
+           'Place': Place, 'Review': Review, 'State': State, 'User': User}
 
 
 class HBNBCommand(cmd.Cmd):
     '''Console Logic? jajaja XD4'''
 
     prompt = '(hbnb) '
+
+    def __init__(self):
+        cmd.Cmd.__init__(self)
+        self.aliases = {'.all()': self.do_all,
+                        '.count()': self.do_count}
 
     def emptyline(self):
         '''Empty line handeling'''
@@ -31,6 +36,13 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         '''Quit command to exit the program'''
         return True
+
+    def default(self, line):
+        cmd, arg, line = self.parseline(line)
+        if arg in self.aliases:
+            self.aliases[arg](cmd)
+        else:
+            print("*** Unknown syntax: %s" % line)
 
     def do_create(self, arg):
         '''Create an instance of a class Ex: create "ClassName"'''
@@ -157,6 +169,16 @@ class HBNBCommand(cmd.Cmd):
                                     temp_dir = {attribute: casted}
                                     setattr(objects[name], attribute, casted)
                                     storage.save()
+
+    def do_count(self, line):
+        cmd, arg, line = self.parseline(line)
+        objects = storage.all()
+        pichu = 0
+        for k, v in objects.items():
+            class_name = v.__class__.__name__
+            if class_name == cmd:
+                pichu += 1
+        print(pichu)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,6 @@
 '''file that defines the Base_model class4'''
 
 import json
-from os import path
 from models.amenity import Amenity
 from models.base_model import BaseModel
 from models.city import City
