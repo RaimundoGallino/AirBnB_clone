@@ -77,11 +77,21 @@ class TestFileStorage(unittest.TestCase):
             FileStorage("89")
         with self.assertRaises(TypeError):
             FileStorage(None)
-    
-    def test_is_an_instance(self):
-        """function test_is_an_instance"""
-        my_model = FileStorage()
-        self.assertIsInstance(my_model, FileStorage)
+
+        def test_reload(self):
+            """tests the reload"""
+            if not path.exists("file.json"):
+                new_file = FileStorage()
+                new_base = BaseModel(id="123", created_at="2021-02-17T22:46:38.86",
+                                    updated_at="2021-02-17T22:46:38.86")
+                new_city = City()
+                new_file.new(new_base)
+                new_file.new(new_city)
+                new_file.save()
+            with open("file.json", "r") as f:
+                obj = json.load(f)
+            self.assertEqual(type(obj), dict)
+
 
 if __name__ == "__main__":
     unittest.main()
