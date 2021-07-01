@@ -59,8 +59,7 @@ class TestFileStorage(unittest.TestCase):
         '''Test'''
         b = BaseModel()
         b.save()
-        bool = os.path.exists('file.json')
-        self.assertTrue(bool)
+        self.assertTrue(os.path.exists('file.json'))
 
 
     def test_reload_method(self):
