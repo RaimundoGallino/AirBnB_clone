@@ -24,11 +24,9 @@ class TestFileStorage(unittest.TestCase):
 
     @classmethod
     def setUp(self):
-        """la puta que lo aprio"""
         pass
 
     def tearDown(self):
-        """la puta que lo aprio"""
         if os.path.exists("file.json"):
             os.rename("file.json", "eae")
 
