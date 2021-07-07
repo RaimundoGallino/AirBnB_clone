@@ -29,8 +29,6 @@ One of the principal benefits of using a MVC model is making easy the identifica
 
 Moreover, this model supports rapid and parallel development. If an MVC model is used to develop any particular web application (or other software) then it is possible that one programmer can work on the view while the other can work on the controller to create the business logic of the web application. Hence this way, the application developed using the MVC model can be completed three times faster than applications that are developed using other development patterns.
 
-<img src="https://i.imgur.com/v3qA2ih.jpeg" align="center"/>
-
 <center><img src="https://i.imgur.com/v3qA2ih.jpeg" width="75%" height="75%" align="center"/><center/>
 
 
