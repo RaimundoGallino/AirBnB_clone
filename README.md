@@ -29,8 +29,9 @@ One of the principal benefits of using a MVC model is making easy the identifica
 
 Moreover, this model supports rapid and parallel development. If an MVC model is used to develop any particular web application (or other software) then it is possible that one programmer can work on the view while the other can work on the controller to create the business logic of the web application. Hence this way, the application developed using the MVC model can be completed three times faster than applications that are developed using other development patterns.
 
-<center><img src="https://i.imgur.com/v3qA2ih.jpeg" width="75%" height="75%" align="center"/><center/>
-
+<div align="center">
+<center><img src="https://i.imgur.com/v3qA2ih.jpeg" width="75%" height="75%"/><center/>
+<div/>
 
 ## The scope of this project
 <a name="project"/>
@@ -42,8 +43,9 @@ For this project the goal was recreating the model described before but using si
 
 For running the console make sure that execution permissions are enabled. After that execute the file.
 The (hbnb) prompt will be displayed. In the example below is shown how can be runned some commands. 
-
+<div align="center">
 <img src="https://hippieboton.xyz/Console_AirBnB.gif" align="center"/>
+<div/>
 
 - `help` command will give the available commands. Running `help` followed by the name of a command will display a simple description of the command.
 
