@@ -1,5 +1,4 @@
-# Airbnb Clone
-
+<h1 align="center">Airbnb Clone</h1>
 <img src="https://i.imgur.com/6JaLQ4z.png" align="center"/>
 
 ## Index
