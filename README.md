@@ -9,8 +9,9 @@
 - [Resources](#Resources)
 - [Authors](#Authors())
 
-## Description
 <a name="model"/>
+
+## Description
 This project consists in recreating the _AirBnB_ software structure. This one is based on the model MVC (Model-View-Controller) a model that consists in creating a layerd structure that delimits each layer from the others and letting them interact with each other safely.
 
 ## Model:
@@ -32,13 +33,14 @@ Moreover, this model supports rapid and parallel development. If an MVC model is
 <img src="https://i.imgur.com/v3qA2ih.jpeg" width="75%" height="75%"/>
 </div>
 
-## The scope of this project
 <a name="project"/>
+
+## The scope of this project
 For this project the goal was recreating the model described before but using simpler methods for each layer. The beginning of an approach on how the _AirBnB_ software works behind the scenes. The hole project was written in python. The model layer was all the logic implemented in the models folder. Creating the BaseModel class and all the classes that inherit this model, such as User, Amenity, City, Place, etc. The persistence of the data was handled by the FileStorage system, making able to save the information created in JSON files when the program was running. The controller layer was the console, for witch was used the cmd module provided by python. In this early state of the project the view was considered by the console itself, the interface created for the user will be considered in future iterations.
 
+<a name="console"/>
 
 ## The console, how to use it?
-<a name="console"/>
 
 For running the console make sure that execution permissions are enabled. After that execute the file.
 The (hbnb) prompt will be displayed. In the example below is shown how can be runned some commands. 
@@ -75,8 +77,9 @@ The (hbnb) prompt will be displayed. In the example below is shown how can be ru
 
 - `EOF` and `quit` command will exit the console
 
-## Resources
 <a name="Resources"/>
+
+## Resources
 
 -   [cmd module](https://intranet.hbtn.io/rltoken/Fx9HXIjmGzbmET4ylYg2Rw "cmd module")
 -   [uuid module](https://intranet.hbtn.io/rltoken/eaQ6aELbdqb0WmPddhD00g "uuid module")
@@ -85,8 +88,9 @@ The (hbnb) prompt will be displayed. In the example below is shown how can be ru
 -   [args/kwargs](https://intranet.hbtn.io/rltoken/jQd3P_uSO0FeU6jlN-z5mg "args/kwargs")
 -   [Python test cheatsheet](https://intranet.hbtn.io/rltoken/WPlydsqB0PG0uVcixemv9A "Python test cheatsheet")
 
-## Authors
 <a name="Authors"/>
+
+## Authors
 
 - [Raimundo Gallino](https://github.com/RaimundoGallino)
 - [Diego Varela](https://github.com/dieg0varela)
