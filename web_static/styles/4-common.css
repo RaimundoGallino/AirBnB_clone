@@ -1,6 +1,5 @@
 * {
     font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
-
 }
 body {
     margin: 0;
@@ -14,4 +13,10 @@ body {
 
 main {
     flex: 1;
+}
+div {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: flex;
+
 }

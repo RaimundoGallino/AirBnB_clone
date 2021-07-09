@@ -1,0 +1,41 @@
+.container{
+    width: 100%;
+    margin: auto;
+    align-self: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;    
+    margin-bottom: 30px;
+
+}
+section {
+    margin: auto;
+    width: 70px;
+    height: 100%;
+    align-items: center;
+}
+.filters {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    background-color: white;
+    height: 70px;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+button {
+    height: 48px;
+    width: 20%;
+    border-radius: 4px;
+    background-color: #FF5A5F;
+    font-size: 18px;
+    color:#FFFFFF;
+    border: none;
+    margin-right: 30px;
+}
+button:hover {
+    opacity: 90%;
+}

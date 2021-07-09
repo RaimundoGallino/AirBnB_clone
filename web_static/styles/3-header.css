@@ -5,8 +5,16 @@ header {
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+
+    
 }
-header img {
+header .logo{
     text-align: center left;
-    margin-left: 20px;
+    margin: auto 20px;
+    background: url("../images/logo.png") no-repeat;
+    height: 60px;
+    width: 20%;
+
 }
