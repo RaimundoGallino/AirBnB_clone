@@ -7,8 +7,7 @@ header {
     border-bottom-color: #CCCCCC;
     display: flex;
     align-items: center;
-
-    
+   
 }
 header .logo{
     text-align: center left;
@@ -16,5 +15,4 @@ header .logo{
     background: url("../images/logo.png") no-repeat;
     height: 60px;
     width: 20%;
-
 }

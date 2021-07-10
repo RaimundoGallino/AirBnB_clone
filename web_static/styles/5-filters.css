@@ -1,5 +1,4 @@
 .container{
-    width: 100%;
     margin: auto;
     align-self: center;
     width: 100%;
@@ -24,8 +23,39 @@ section {
     border-radius: 4px;
     align-items: center;
     display: flex;
+    flex-direction: row;
     justify-content: flex-end;
 }
+
+.locations {
+    flex: 2;
+    border-right:#DDDDDD 1px solid;
+    height: 100%;
+    width: 100%;
+    margin-left: 40px;
+    display: table-cell;
+
+}
+.amenities {
+    flex: 2;
+    height: 100%;
+    width: 100%;
+    margin: auto 0;
+    display: table-cell;
+    margin-left: 40px;
+}
+.filters h3 {
+    font-weight: 600;
+    height: auto;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
 button {
     height: 48px;
     width: 20%;
@@ -35,7 +65,9 @@ button {
     color:#FFFFFF;
     border: none;
     margin-right: 30px;
+    flex: 1;
 }
 button:hover {
     opacity: 90%;
 }
+
