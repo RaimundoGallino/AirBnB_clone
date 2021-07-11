@@ -1,0 +1,132 @@
+.container{
+    margin: auto;
+    align-self: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 30px;    
+    margin-bottom: 30px;
+
+}
+section {
+    margin: auto;
+    width: 70px;
+    height: 100%;
+    align-items: center;
+}
+.filters {
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    background-color: white;
+    height: 70px;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.locations {
+    flex: 2;
+    border-right:#DDDDDD 1px solid;
+    height: 100%;
+    width: 100%;
+    display: table-cell;
+
+
+}
+.amenities {
+    flex: 2;
+    height: 100%;
+    width: 100%;
+
+    display: table-cell;
+}
+.filters h3 {
+    font-weight: 600;
+    height: auto;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    margin-left: 30px;
+
+}
+.filters h4 {
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+button {
+    height: 48px;
+    width: 20%;
+    border-radius: 4px;
+    background-color: #FF5A5F;
+    font-size: 18px;
+    color:#FFFFFF;
+    border: none;
+    margin-right: 30px;
+    flex: 1;
+}
+button:hover {
+    opacity: 90%;
+}
+
+.popover {
+
+    background: #fafaff;
+    display: flex;
+    justify-content: space-around;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #CCCCCC;
+    width: 100%;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    margin: 0px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    transform: translateY(-5px);
+
+}
+
+.locations ul,
+.amenities ul {
+
+    width: 100%;
+    background: #fafaff;
+    list-style: none;
+    margin-right: 0;
+    margin-left: 0;
+
+}
+.amenities li,
+.locations li {
+    width: 100%;
+    display: flex;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+.locations li h1 {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1px;
+    margin-left: -20                                                                                              px; 
+}
+.amenities li:hover,
+.locations li:hover {
+    background-color: lightcoral;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0px);
+    position: relative;
+
+}
+
