@@ -102,20 +102,23 @@ button:hover {
     list-style: none;
     margin-right: 0;
     margin-left: 0;
+    margin-top: 20px;
 
 }
 .amenities li,
 .locations li {
     width: 100%;
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     margin-left: 15px;
+    margin-top: 5px;
 }
 .locations li h1 {
     width: 100%;
     display: flex;
-    margin-bottom: 1px;
-    margin-left: -20px;                                                                                              px; 
+    margin-bottom: 3px;
+    margin-left: -20px;
+    margin-top: 3px;                                                                                        px; 
 }
 
 .locations:hover .popover,
