@@ -48,7 +48,7 @@ section {
     height: auto;
     margin-bottom: 5px;
     margin-top: 15px;
-    margin-left: 30px;
+    margin-left: 40px;
 
 }
 .filters h4 {
@@ -56,7 +56,7 @@ section {
     font-size: 14px;
     margin-top: 0px;
     margin-bottom: 15px;
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 button {
@@ -69,6 +69,7 @@ button {
     border: none;
     margin-right: 30px;
     flex: 1;
+    margin-left: 15%;
 }
 button:hover {
     opacity: 90%;
@@ -115,10 +116,6 @@ button:hover {
     display: flex;
     margin-bottom: 1px;
     margin-left: -20                                                                                              px; 
-}
-.amenities li:hover,
-.locations li:hover {
-    background-color: lightcoral;
 }
 
 .locations:hover .popover,
