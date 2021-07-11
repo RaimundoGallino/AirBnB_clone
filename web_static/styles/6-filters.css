@@ -115,7 +115,7 @@ button:hover {
     width: 100%;
     display: flex;
     margin-bottom: 1px;
-    margin-left: -20                                                                                              px; 
+    margin-left: -20px;                                                                                              px; 
 }
 
 .locations:hover .popover,
