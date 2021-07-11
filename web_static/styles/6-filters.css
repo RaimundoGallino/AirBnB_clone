@@ -85,7 +85,6 @@ button:hover {
     pointer-events: none;
     transition: all 0.4s ease;
     transform: translateY(-5px);
-
 }
 
 .locations ul,
@@ -121,6 +120,5 @@ button:hover {
     pointer-events: all;
     transform: translateY(0px);
     position: relative;
-
 }
 
