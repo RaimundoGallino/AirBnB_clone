@@ -37,7 +37,6 @@ article h2 {
 
 
 .price_by_night span {
-
     font-size: 30px;
     color:  #FF5A5F;
     padding-top: 20px;
@@ -60,7 +59,6 @@ article h2 {
     border-bottom:1px solid #DDDDDD;
     padding:10px; 
 }
-
 
 .information p {
     margin-bottom: 0;
@@ -119,9 +117,14 @@ article h2 {
     background-repeat: no-repeat;
     background-position: center;
 }
+.header {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 
 .user {
     margin-top: 15px;
+    margin-left: 0px;
 }
 .user .owner {
     font-weight:bold;
