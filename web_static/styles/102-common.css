@@ -1,0 +1,22 @@
+* {
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    font-size: 14px;
+    
+}
+
+main {
+    flex: 2;
+}
+div {
+    max-width: 1000px;
+    margin: 30px auto;
+    display: flex;
+
+}
